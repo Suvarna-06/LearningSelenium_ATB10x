@@ -1,12 +1,9 @@
-package org.example;
+package org.example.ex02_Selenium_basics;
 import io.qameta.allure.Description;
-import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.Test;
-
-import java.io.File;
 
 public class TestSelenium16_Add_Extension {
 
