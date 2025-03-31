@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class TestSelenium21_MiniProject {
+public class TestSelenium21_MiniProject_3 {
 
     // https://katalon-demo-cura.herokuapp.com/
 
