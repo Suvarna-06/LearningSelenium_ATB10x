@@ -46,6 +46,6 @@ public class TestSelenium18 {
             throw new RuntimeException(e);
         }
         driver.quit();
-
+        // It will close all the tabs. - session id == null
     }
 }
