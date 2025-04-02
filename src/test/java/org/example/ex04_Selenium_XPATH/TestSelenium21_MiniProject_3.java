@@ -32,7 +32,7 @@ public class TestSelenium21_MiniProject_3 {
 //      username_input_box_xpath.sendKeys("John Doe");
 
         // Life is not easy so there will be no direct id , name so we have only
-        // placeholder but if we check there are two placeholder?
+        // placeholder but if we check there are two placeholder on same folder?
         // Solution --> Then we use List
         List<WebElement> username_input_box_xpath_placeholder = driver.findElements(By.xpath("//input[@placeholder='Username']"));
         username_input_box_xpath_placeholder.get(1).sendKeys("John Doe");
@@ -43,6 +43,8 @@ public class TestSelenium21_MiniProject_3 {
        WebElement login_input_box=driver.findElement(By.xpath("//button[@id='btn-login']"));
        login_input_box.click();
 
+       // To verify our current URL changes after clicking this button (verify next page is loaded or not)
+        // After entering the crt usr and pswd and click on login we will get appointment page(this we are verifying)
         Assert.assertEquals(driver.getCurrentUrl(),"https://katalon-demo-cura.herokuapp.com/profile.php#login");
         driver.quit();
 
