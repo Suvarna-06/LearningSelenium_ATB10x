@@ -6,8 +6,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class TestSelenium23_Fix_Miniproject {
 
@@ -34,7 +39,10 @@ public class TestSelenium23_Fix_Miniproject {
         driver.navigate().to("https://app.vwo.com");
         System.out.println(driver.getTitle());
 
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+        // We are not using this
+        // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 
 
         Assert.assertEquals(driver.getTitle(), "Login - VWO");
@@ -54,9 +62,28 @@ public class TestSelenium23_Fix_Miniproject {
 
         // We have used Thread.sleep in previous project
 
+        // After 3 seconds error comes
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
 
 
 
+
+        // until this notification displayed or visible we have to wait for max = 3
+        WebElement error_message = driver.findElement(By.className("notification-box-description"));
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        wait.until(ExpectedConditions.visibilityOf(error_message));
+
+
+       // WebElement error_message = driver.findElement(By.className("notification-box-description"));
+        Assert.assertEquals(error_message.getText(), "Your email, password, IP address or location did not match");
+
+
+        driver.quit();
 
 
 
