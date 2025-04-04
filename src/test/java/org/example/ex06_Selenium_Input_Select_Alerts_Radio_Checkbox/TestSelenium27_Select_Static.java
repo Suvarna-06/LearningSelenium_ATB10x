@@ -1,4 +1,4 @@
-package org.example;
+package org.example.ex06_Selenium_Input_Select_Alerts_Radio_Checkbox;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
