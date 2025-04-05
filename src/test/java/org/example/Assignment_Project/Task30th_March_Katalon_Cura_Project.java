@@ -76,7 +76,8 @@ public class Task30th_March_Katalon_Cura_Project {
             appointment.click();
 
             // Validating the booking
-        WebElement text = driver.findElement(By.xpath("//h2[text()='Appointment Confirmation']"));            System.out.println("Confirmation message-> " +text.getText());
+            WebElement text = driver.findElement(By.xpath("//h2[text()='Appointment Confirmation']"));
+            System.out.println("Confirmation message-> " +text.getText());
             Assert.assertEquals(text.getText(),"Appointment Confirmation");
 
 
