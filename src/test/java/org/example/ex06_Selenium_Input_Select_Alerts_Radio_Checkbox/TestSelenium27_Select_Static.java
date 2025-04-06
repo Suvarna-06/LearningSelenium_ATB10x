@@ -17,8 +17,6 @@ public static void main(String[]args){
     select.selectByVisibleText("Option 2");
 
 
-
-
 }
 
 

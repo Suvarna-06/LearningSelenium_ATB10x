@@ -1,6 +1,7 @@
 package org.example.ex06_Selenium_Input_Select_Alerts_Radio_Checkbox;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 
 public class TestSelenium26_Input_Checkbox_Radio {
@@ -16,6 +17,7 @@ public class TestSelenium26_Input_Checkbox_Radio {
         // CheckBox
 
         driver.findElement(By.id("tool-1")).click();
+
 
 
 
