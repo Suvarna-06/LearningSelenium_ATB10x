@@ -1,10 +1,19 @@
 package org.example.ex11_Windows_handling;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import java.util.List;
+import java.util.Set;
+import javax.swing.*;
+
+import static org.example.ex07_WaitHelper.WaitHelpers.waitJVM;
 
 public class Test_Project_Interview_Advance {
     public EdgeDriver driver;
@@ -22,7 +31,47 @@ public class Test_Project_Interview_Advance {
     public void test_actions(){
 
         driver.get("https://app.vwo.com/#/test/ab/13/heatmaps/1?token=eyJhY2NvdW50X2lkIjo2NjY0MDAsImV4cGVyaW1lbnRfaWQiOjEzLCJjcmVhdGVkX29uIjoxNjcxMjA1MDUwLCJ0eXBlIjoiY2FtcGFpZ24iLCJ2ZXJzaW9uIjoxLCJoYXNoIjoiY2IwNzBiYTc5MDM1MDI2N2QxNTM5MTBhZDE1MGU1YTUiLCJzY29wZSI6IiIsImZybiI6ZmFsc2V9&isHttpsOnly=1");
+        driver.manage().window().maximize();
 
+        waitJVM(5000);
+
+        // Before clicking i will get parent window
+        String parentWindowHandle = driver.getWindowHandle();
+        System.out.println("Parent Window: " +parentWindowHandle);
+
+        // Hover over variation 1 and right-click on the 'View Heatmap'.
+        //Cltr F --> yedexafobi -->Xpath -> [data-qa="yedexafobi"]
+
+        List<WebElement> list_heatmaps = driver.findElements(By.cssSelector("[data-qa=\"yedexafobi\"]"));
+
+        // Hover over it and click use Action class
+        Actions actions= new Actions(driver);
+
+        // Move to which element?
+        actions.moveToElement(list_heatmaps.get(1));
+
+        waitJVM(15000);
+
+        // We will wait for until heat map iframe is visible so use explicit wait.
+
+
+        // We will get how many hamdels we have.
+        // now we switch to second handle(child handle)
+
+        Set<String>allHandles = driver.getWindowHandles();
+        System.out.println("All Window Handles: "+allHandles);
+
+        for(String handle: allHandles){
+        if(!handle.equals(parentWindowHandle)){
+            driver.switchTo().window(handle);
+            // Now I am in the child window
+            driver.switchTo().frame("heatmap-iframe");
+
+            WebElement clickmap = driver.findElement(By.cssSelector("[data-qa='liqokuxuba']"));
+            clickmap.click();
+        }
+
+        }
 
     }
 
