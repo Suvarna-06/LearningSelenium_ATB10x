@@ -1,4 +1,4 @@
-package org.example.ex11_Windows_handling;
+package org.example.ex12_Windows_handling;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -11,7 +11,6 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 import java.util.Set;
-import javax.swing.*;
 
 import static org.example.ex07_WaitHelper.WaitHelpers.waitJVM;
 

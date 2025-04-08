@@ -1,4 +1,4 @@
-package org.example.ex11_Windows_handling;
+package org.example.ex12_Windows_handling;
 
 import org.example.TestCaseBoilerPlate;
 import org.openqa.selenium.By;
