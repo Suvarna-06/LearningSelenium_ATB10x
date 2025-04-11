@@ -1,4 +1,4 @@
-package org.example.ex10_File_Upload;
+package org.example.ex11_File_Upload;
 
 import org.example.TestCaseBoilerPlate;
 import org.openqa.selenium.By;
