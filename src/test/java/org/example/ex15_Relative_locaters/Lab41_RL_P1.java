@@ -1,4 +1,4 @@
-package org.example.ex14_Relative_locaters;
+package org.example.ex15_Relative_locaters;
 
 import org.example.TestCaseBoilerPlate;
 import org.openqa.selenium.By;
