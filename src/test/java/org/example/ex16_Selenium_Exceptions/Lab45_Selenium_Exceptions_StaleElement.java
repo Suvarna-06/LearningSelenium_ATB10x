@@ -1,9 +1,6 @@
 package org.example.ex16_Selenium_Exceptions;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.AfterTest;
@@ -28,15 +25,18 @@ public class Lab45_Selenium_Exceptions_StaleElement {
         driver.get("https://google.com");
         System.out.println("Start of program");
 
-        WebElement search_input_box =driver.findElement(By.id("id=\"APjFqb\""));
+        WebElement search_input_box  = driver.findElement(By.xpath("//textarea[@id='APjFqb']"));        System.out.println(driver.getWindowHandle());
+        System.out.println(driver.getWindowHandle());
 
-           driver.navigate().refresh();
+        driver.navigate().refresh();
         try {
             search_input_box.sendKeys("the testing academy"+ Keys.ENTER);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (StaleElementReferenceException e) {
+            System.out.println("StaleElementReferenceException");;
         }
 
+        System.out.println(driver.getWindowHandle());
+        // Window id will never change
         System.out.println("End of program");
 
 
